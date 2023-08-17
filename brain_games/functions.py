@@ -12,6 +12,16 @@ def even_or_not(number):
         return 'no'
 
 
+def IsPrime(n):
+    d = 2
+    while n % d != 0:
+        d += 1
+    if d == n:
+        return 'yes'
+    else:
+        return 'no'
+
+
 def welcome_user():
     print('Welcome to the Brain Games!')
     name = prompt.string('May I have your name? ')
@@ -119,6 +129,25 @@ def brain_progression_game():
         answer = prompt.integer('Your answer: ')
         if answer != random_number:
             knockout_user(answer, random_number, name)
+            return None
+        else:
+            print('Correct!')
+
+    print(f'Congratulations, {name}!')
+
+    return None
+
+
+def brain_prime_game():
+    name = welcome_user()
+    print('Answer "yes" if given number is prime. Otherwise answer "no".')
+    for _ in range(3):
+        random_number = randint(0, 100)
+        print(f'Question: {random_number}')
+        answer = prompt.string('Your answer: ').lower()
+        correct_answer = IsPrime(random_number)
+        if correct_answer != answer:
+            knockout_user(answer, correct_answer, name)
             return None
         else:
             print('Correct!')
