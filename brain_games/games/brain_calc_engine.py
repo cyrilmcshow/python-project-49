@@ -27,7 +27,8 @@ def brain_calc_game():
         print(f'Question: '
               f'{first_random_number} {random_symbol} {second_random_number}')
         answer = prompt.integer('Your answer: ')
-        correct_answer = choice_operator(first_random_number, second_random_number, random_symbol)
+        correct_answer = choice_operator(first_random_number,
+                                         second_random_number, random_symbol)
         if answer != correct_answer:
             knockout_user(answer, correct_answer, name)
             return None
