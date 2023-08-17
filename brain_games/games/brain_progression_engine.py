@@ -18,7 +18,7 @@ def brain_progression_game():
         random_number = progression[randint(0, 7)]
         index = progression.index(random_number)
         progression[index] = '..'
-        result_for_print = ", ".join(map(str, progression))
+        result_for_print = " ".join(map(str, progression))
         print(f'Question: {result_for_print}')
         answer = prompt.integer('Your answer: ')
         if answer != random_number:
