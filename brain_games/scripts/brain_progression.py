@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from brain_games.functions import brain_progression_game
+from brain_games.games.brain_progression_engine import brain_progression_game
 
 
 def main():
