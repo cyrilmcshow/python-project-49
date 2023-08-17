@@ -1,5 +1,6 @@
 from random import randint
 import prompt
+from math import gcd
 
 symbols = ['+', '-', '*']
 
@@ -75,4 +76,53 @@ def brain_calc_game():
                 print('Correct!')
 
     print(f'Congratulations, {name}!')
+    return None
+
+
+def brain_gcd_game():
+    name = welcome_user()
+
+    print('Find the greatest common divisor of given numbers.')
+
+    for _ in range(3):
+        first_random_number = randint(0, 100)
+        second_random_number = randint(0, 100)
+        print(f'Question: {first_random_number} {second_random_number}')
+        answer = prompt.integer('Your answer: ')
+        correct_answer = gcd(first_random_number, second_random_number)
+        if answer != correct_answer:
+            knockout_user(answer, correct_answer, name)
+            return None
+        else:
+            print('Correct!')
+
+    print(f'Congratulations, {name}!')
+    return None
+
+
+def brain_progression_game():
+    name = welcome_user()
+
+    print('What number is missing in the progression?')
+
+    for _ in range(3):
+        left_borders = randint(10, 16)
+        right_borders = randint(80, 96)
+        step = randint(5, 10)
+        progression = [x for x in range(left_borders, right_borders, step)]
+        progression.sort()
+        random_number = progression[randint(0, 7)]
+        index = progression.index(random_number)
+        progression[index] = '..'
+        result_for_print = ", ".join(map(str, progression))
+        print(f'Question: {result_for_print}')
+        answer = prompt.integer('Your answer: ')
+        if answer != random_number:
+            knockout_user(answer, random_number, name)
+            return None
+        else:
+            print('Correct!')
+
+    print(f'Congratulations, {name}!')
+
     return None
