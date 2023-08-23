@@ -7,7 +7,7 @@ TASK = 'What number is missing in the progression?'
 def generate_progression(lower_bound, upper_bound, step):
     progression = [x for x in range(lower_bound, upper_bound, step)]
     progression.sort()
-    random_number = progression[randint(0, 7)]
+    random_number = progression[randint(0, 6)]
     index = progression.index(random_number)
     progression[index] = '..'
     result_for_print = " ".join(map(str, progression))
