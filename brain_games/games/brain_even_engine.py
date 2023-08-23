@@ -1,28 +1,23 @@
 from random import randint
 import prompt
 
-from brain_games.common_functions import knockout_user, welcome_user
+TASK = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
 def even_or_not(number):
     if number % 2 == 0:
-        return 'yes'
+        return True
     else:
-        return 'no'
+        return
 
 
-def brain_even_game():
-    name = welcome_user()
-    print('Answer "yes" if the number is even, otherwise answer "no".')
-    for _ in range(3):
-        random_number = randint(0, 100)
-        print(f'Question: {random_number}')
-        answer = prompt.string('Your answer: ').lower()
-        correct_answer = even_or_not(random_number)
-        if answer != correct_answer:
-            knockout_user(answer, correct_answer, name)
-            return None
-        else:
-            print('Correct!')
-    print(f'Congratulations, {name}!')
-    return None
+def play_brain_even():
+    random_number = randint(0, 100)
+    print(f'Question: {random_number}')
+    answer = prompt.string('Your answer: ').lower()
+    if even_or_not(random_number):
+        correct_answer = 'yes'
+    else:
+        correct_answer = 'no'
+
+    return answer, correct_answer

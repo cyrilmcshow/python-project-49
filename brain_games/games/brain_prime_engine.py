@@ -1,7 +1,7 @@
 from random import randint
 import prompt
 
-from brain_games.common_functions import knockout_user, welcome_user
+TASK = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
 def is_prime(n):
@@ -9,25 +9,17 @@ def is_prime(n):
     while n % d != 0:
         d += 1
     if d == n:
-        return 'yes'
+        return True
     else:
-        return 'no'
+        return
 
 
-def brain_prime_game():
-    name = welcome_user()
-    print('Answer "yes" if given number is prime. Otherwise answer "no".')
-    for _ in range(3):
-        random_number = randint(0, 100)
-        print(f'Question: {random_number}')
-        answer = prompt.string('Your answer: ').lower()
-        correct_answer = is_prime(random_number)
-        if correct_answer != answer:
-            knockout_user(answer, correct_answer, name)
-            return None
-        else:
-            print('Correct!')
-
-    print(f'Congratulations, {name}!')
-
-    return None
+def play_brain_prime():
+    random_number = randint(0, 100)
+    print(f'Question: {random_number}')
+    answer = prompt.string('Your answer: ').lower()
+    if is_prime(random_number):
+        correct_answer = 'yes'
+    else:
+        correct_answer = 'no'
+    return answer, correct_answer
