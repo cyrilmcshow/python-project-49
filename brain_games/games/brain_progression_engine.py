@@ -10,7 +10,7 @@ def generate_progression(lower_bound, upper_bound, step):
     random_number = progression[randint(0, 7)]
     index = progression.index(random_number)
     progression[index] = '..'
-    result_for_print = " ".join(progression)
+    result_for_print = " ".join(map(str,progression))
     return result_for_print, random_number
 
 
