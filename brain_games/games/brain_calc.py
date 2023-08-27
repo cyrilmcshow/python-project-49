@@ -2,12 +2,12 @@ from random import randint
 import prompt
 import operator
 
-TASK = 'What is the result of the expression?'
+task = 'What is the result of the expression?'
 
 OPERATORS = ['+', '-', '*']
 
 
-def choice_operator(first_number, second_number, select_operator):
+def calculate_correct_answer(first_number, second_number, select_operator):
     operators = {
         '+': operator.add(first_number, second_number),
         '-': operator.sub(first_number, second_number),
@@ -24,6 +24,6 @@ def play_brain_calc():
     print(f'Question: '
           f'{first_random_number} {random_symbol} {second_random_number}')
     answer = prompt.integer('Your answer: ')
-    correct_answer = choice_operator(first_random_number,
-                                     second_random_number, random_symbol)
+    correct_answer = calculate_correct_answer(
+        first_random_number, second_random_number, random_symbol)
     return answer, correct_answer

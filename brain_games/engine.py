@@ -16,9 +16,9 @@ def knockout_user(answer, correct_answer, name):
     print(f"Let's try again, {name}!")
 
 
-def games_engine(TASK, game_func):
+def launch_games_engine(task, game_func):
     name = welcome_user()
-    print(TASK)
+    print(task)
     for _ in range(NUMBER_OF_QUESTION):
         answer, correct_answer = game_func()
         if answer != correct_answer:

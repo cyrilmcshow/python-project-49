@@ -1,12 +1,11 @@
 from random import randint
 import prompt
 
-TASK = 'What number is missing in the progression?'
+task = 'What number is missing in the progression?'
 
 
-def generate_progression(lower_bound, upper_bound, step):
+def generate_number_from_progression(lower_bound, upper_bound, step):
     progression = [x for x in range(lower_bound, upper_bound, step)]
-    progression.sort()
     random_number = progression[randint(0, 6)]
     index = progression.index(random_number)
     progression[index] = '..'
@@ -18,7 +17,7 @@ def play_brain_progression():
     lower_bound = randint(10, 16)
     upper_bound = randint(80, 96)
     step = randint(5, 10)
-    result_for_print, random_number = generate_progression(
+    result_for_print, random_number = generate_number_from_progression(
         lower_bound, upper_bound, step)
     print(f'Question: {result_for_print}')
     answer = prompt.integer('Your answer: ')

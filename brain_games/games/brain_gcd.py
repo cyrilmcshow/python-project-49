@@ -2,7 +2,7 @@ from random import randint
 from math import gcd
 import prompt
 
-TASK = 'Find the greatest common divisor of given numbers.'
+task = 'Find the greatest common divisor of given numbers.'
 
 
 def play_brain_gcd():
